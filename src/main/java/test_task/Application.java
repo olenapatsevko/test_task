@@ -47,7 +47,7 @@ public class Application implements CommandLineRunner {
         outputResult(employeeService.findAllByMaxSalary());
 
         log.info("5) Get a list of employees who do not have boss in the same department...");
-        //outputResult(employeeService.findAllWithoutBoss());
+        outputResult(employeeService.findAllWithoutBoss());
 
         log.info("6) Fire Dayna Whitworth and get her ID...");
         log.info(employeeService.fireEmployee("Dayna Whitworth").toString());

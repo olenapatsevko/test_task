@@ -32,11 +32,16 @@ public interface EmployeeDao extends CrudRepository<Employee, Long> {
 
     //TODO Get a list of employees who do not have boss in the same department
     @Query(
-            value = "SELECT a.id as id , a.name as name , a.salary as salary , a.boss_id as boss_id, a.department_id as department_id " +
-                    "FROM employee AS a" +
-                    "WHERE a.department_id not in (" +
-                    "SELECT b.department_id FROM employee AS b" +
-                    "WHERE b.id = a.boss_id)",
+            value = "SELECT employee.id            as id,\n" +
+                    "       employee.name          as name,\n" +
+                    "       employee.salary        as salary,\n" +
+                    "       employee.boss_id       as boss_id,\n" +
+                    "       employee.department_id as department_id\n" +
+                    "FROM employee\n" +
+                    "WHERE employee.department_id not in (\n" +
+                    "    SELECT b.department_id\n" +
+                    "    FROM employee AS b\n" +
+                    "    WHERE b.id = employee.\"boss_id\")\n",
             nativeQuery = true)
     List<Employee> findAllWithoutBoss();
 
