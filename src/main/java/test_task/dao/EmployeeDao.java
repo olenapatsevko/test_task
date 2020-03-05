@@ -36,7 +36,7 @@ public interface EmployeeDao extends CrudRepository<Employee, Long> {
                     "FROM employee AS a" +
                     "WHERE a.department_id not in (" +
                     "SELECT b.department_id FROM employee AS b" +
-                    "WHERE b.id = a.\"boss_id\")",
+                    "WHERE b.id = a.boss_id)",
             nativeQuery = true)
     List<Employee> findAllWithoutBoss();
 
