@@ -36,7 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Long fireEmployee(String name) {
         Iterable<Employee> employees = employeeDao.findAll();
-        
+
         //TODO Implement method using Collection
         // ---write your code here
 
@@ -48,7 +48,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 employeeDao.deleteById(employee.getId());
             }
         }
-        return employee == null? 0L : employee.getId();
+        return employee == null ? 0L : employee.getId();
     }
 
     @Override

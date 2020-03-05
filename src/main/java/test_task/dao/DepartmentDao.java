@@ -17,6 +17,7 @@ DepartmentDao extends CrudRepository<Department, Long> {
                     " having count(e.id) <= 3",
             nativeQuery = true)
     List<Long> findAllWhereDepartmentDoesntExceedThreePeople();
+
     //TODO Get a list of departments IDs with the maximum total salary of employees
     @Query(
             value = "select d.id from department as d ",
